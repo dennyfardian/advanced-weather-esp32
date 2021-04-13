@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<title>Advanced Weather Station</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<style>
+    body {font-family: "Lato", sans-serif}
+    .mySlides {display: none}
+    h2 {
+        font-family: Lato;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+</style>
+<body>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:400px;" id="home">
+  <img class="w3-image" src="atas.png" alt="Atas"> <!-- width="1500" height="800"> -->
+  <h3 class="w2-border-center w2-border-light-grey w2-padding-16">Advanced Weather Station</h3>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Cuaca Section -->
+  <div class="w3-container w3-padding-32" id="home">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Cuaca Saat Ini</h3>
+    <p>Lihat cuaca saat ini </p>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-margin-bottom w3-center">
+      <div class="w3-card-4 w3-center w3-round-xlarge" style="width:30%">
+        <img src="hujan.gif" alt="hujan" style="width:100%">
+        <div class="w3-container w3-center">
+          <p style="color:rgb(79, 199, 255);"><b>Hujan Ringan</b></p>
+          <p>12:00-13:30</p>
+          <p>Bandung</p>
+          <p><b>56%</b> confidence level</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kondisi Section -->
+  <div class="w3-container w3-padding-32" id="kondisi">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Kondisi Saat Ini</h3>
+    <p>Berikut adalah kondisi paramater cuaca saat ini </p>
+  </div>
+
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col l3 m6 w3-margin-bottom" style="width:30%">
+      <img src="temperature.gif" alt="John" style="width:40%">
+      <h3 id="dataSuhu"></h3>
+      <p class="w3-opacity">Temperatur</p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom" style="width:30%">
+      <img src="pressure.gif" alt="Jane" style="width:40%">
+      <h3 id="dataTekanan"></h3>
+      <p class="w3-opacity">Tekanan</p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom" style="width:30%">
+      <img src="altitude.gif" alt="Mike" style="width:40%">
+      <h3 id="dataKetinggian"></h3>
+      <p class="w3-opacity">Ketinggian</p>
+    </div>
+  </div>
+
+  <!-- Graph Section -->
+  <div class="w3-container w3-padding-32">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Grafik Kondisi</h3>
+    <p>Berikut adalah grafik kondisi cuaca </p>
+  </div>
+
+  <div>
+    <div id="chart-temperature" class="container"></div>
+    <div id="chart-altitude" class="container"></div>
+    <div id="chart-pressure" class="container"></div>
+  </div>
+  <!-- ============================Graph Section============================ -->
+
+  
+  <!-- Cuaca Hari Lain Section -->
+  <div class="w3-container w3-padding-32" id="lain">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Cuaca Hari Lain</h3>
+    <p>Lihat menu Wahana Buka untuk melihat wahana yang masih tersedia </p>
+  </div>
+
+  <!-- <label for="tanggal">Tanggal:</label>
+  <select name="tanggal" id="tanggal">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    
+  </select>
+  <label for="bulan">  Bulan:</label>
+  <select name="bulan" id="bulan">
+    <option value="Januari">Januari</option>
+    <option value="Februari">Februari</option>
+    <option value="Maret">Maret</option>
+    <option value="April">April</option>
+    <option value="Mei">Mei</option>
+    <option value="Juni">Juni</option>
+    <option value="Juli">Juli</option>
+    <option value="Agustus">Agustus</option>
+    <option value="September">September</option>
+    <option value="Oktober">Oktober</option>
+    <option value="November">November</option>
+    <option value="audi">Desember</option>
+  </select>
+
+</select>
+<label for="tahun">  Tahun:</label>
+<select name="tahun" id="tahun">
+  <option value="2021">2021</option>
+</select> -->
+
+<form onsubmit="handleSubmitDate(event)">
+  <label for="birthday">Pilih Tanggal:</label>
+  <input id="dateInput" type="date" id="tanggal" name="tanggal">
+  <input type="submit">
+</form>
+<p>Disclaimer: Pilihlah tanggal dalam rentang waktu 10 hari kedepan. Semakin lama tanggal yang Anda pilih, semakin tidak akurat prediksinya.</p>
+
+<br>
+<br>
+
+
+  <div class="w3-row-padding">
+    <div class=" w3-margin-bottom w3-center">
+      <div class="w3-col l3 m6 w3-center w3-round-xlarge" style="width:25%; display:none" id="cerah">
+        <img src="sun.gif" alt="hujan" style="width:50%">
+        <div class="w3-container w3-center">
+          <p style="color:rgb(79, 199, 255);"><b>Cerah</b></p>
+          <p>09:00-12:00</p>
+          <p>Bandung</p>
+          <p><b>56%</b> confidence level</p>
+        </div>
+      </div>
+    </div>
+    <div class=" w3-margin-bottom w3-center">
+      <div class="w3-col l3 m6 w3-center w3-round-xlarge" style="width:25%; display:none" id="hujan">
+        <img src="hujan.gif" alt="hujan" style="width:50%">
+        <div class="w3-container w3-center">
+          <p style="color:rgb(79, 199, 255);"><b>Hujan Ringan</b></p>
+          <p>12:00-13:30</p>
+          <p>Bandung</p>
+          <p><b>56%</b> confidence level</p>
+        </div>
+      </div>
+    </div>
+    <div class=" w3-margin-bottom w3-center">
+        <div class="w3-col l3 m6 w3-center w3-round-xlarge" style="width:50%">
+          <img src="cloud.gif" alt="hujan" style="width:50%">
+          <div class="w3-container w3-center">
+            <p style="color:rgb(79, 199, 255);"><b>Berawan</b></p>
+            <p>13:30-17:00</p>
+            <p>Bandung</p>
+            <p><b>56%</b> confidence level</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  
+  
+<!-- Image of location/map -->
+<div class="w3-container">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Map Bandung</h3>
+  <img src="bandung.jpeg" class="w3-image" style="width:100%">
+</div>
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Made by<b> Kelompok 06 TPK Reksismul</b></p>
+</footer>
+
+</body>
+
+<!-- Scripts -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+
+  function handleSubmitDate(e) {
+    e.preventDefault();
+    
+    // fetch('http://localhost:5000/pembacaan').then((response) => {
+    fetch(' https://advanced-weather-bmp180.herokuapp.com/pembacaan').then((response) => {
+      response.json().then((bodyContent) => {
+        let rows = bodyContent;
+
+        // --- membuat prediksi --- 
+        let selectedDate = new Date(document.querySelector("#dateInput").value); // ini valuenya didapet dari form yg buat milih tanggal. Di kode di bawah, formatnya di-expect dalam bentuk epoch (milidetik)
+        let resultRows = []; // akan diisi semua data pembacaan sensor yang diambil 10 hari sebelum tanggal yg dipilih pengguna  
+        const range = 10 * 24 * 3600 * 1000; // 10 hari dalam milidetik 
+        
+        // untuk setiap data pembacaan dari semua data pembacaan yang ada,
+        for (let i = 0; i <= rows.length - 1; i++) {
+          let now = new Date(rows[i].timestamp).getTime();
+          let selectedDateEpoch = selectedDate.getTime();
+          
+          // jika waktu pengukuran pembacaan ini berada di antara waktu yg dipilih dari form dan waktu yg dipilih dari form dikurangin 10 hari, 
+          if (now > (selectedDateEpoch - range) && now < selectedDateEpoch) {
+            // simpan data pembacaan di array
+            resultRows.push(rows[i]);
+          }
+        }
+        
+        let willRain = false;
+        if (resultRows.length === 0) { // jika blom ada data pembacaan yang dapat digunakan buat bikin prediksi,        
+          
+          // kasi feedback ke pengguna(?)
+          
+          
+        } else { // jika ada setidaknya 1 data pembacaan,
+          
+          // buat prediksi dengan data yang ada
+          let tekananAvg;
+          let tekananSum = 0;
+          let suhuAvg;
+          let suhuSum = 0;
+          
+          for (let row of resultRows) {
+            tekananSum += Number(row.tekanan);
+            suhuSum += Number(row.suhu);
+          }
+          tekananAvg = tekananSum / resultRows.length;
+          suhuAvg = suhuSum / resultRows.length;
+          console.log(tekananAvg);
+          console.log(suhuAvg);
+
+          if ((tekananAvg < 90000) && (suhuAvg < 27) && (suhuAvg > 0)) {
+            willRain = true;
+          }
+        }
+
+        // menggunakan willRain untuk menentukan tampilan
+        if (willRain) {
+          document.querySelector("#hujan").style.display = "block";
+          document.querySelector("#cerah").style.display = "none";
+        } else {
+          document.querySelector("#cerah").style.display = "block";
+          document.querySelector("#hujan").style.display = "none";
+        }
+      });
+    }).catch((error) => {
+      console.log(error);
+    })
+
+  }
+  
+  // me-retrieve semua data pembacaan sensor dari db
+  // fetch('http://localhost:5000/pembacaan').then((response) => {
+  fetch(' https://advanced-weather-bmp180.herokuapp.com/pembacaan').then((response) => {
+    response.json().then((bodyContent) => {
+      let rows = bodyContent;
+
+      // --- mengubah teks di bagian "Kondisi Saat Ini" ---
+      document.querySelector("#dataSuhu").innerHTML = rows[rows.length - 1].suhu + " °C";
+      document.querySelector("#dataTekanan").innerHTML = rows[rows.length - 1].tekanan + " Pa";
+      document.querySelector("#dataKetinggian").innerHTML = rows[rows.length - 1].ketinggian + " m";
+
+      // --- menggambar grafik ---
+      let slicedRows = rows.slice(rows.length - 48, rows.length);
+      let value1 = slicedRows.map((row) => (Number(row.suhu)));
+      let value2 = slicedRows.map((row) => (Number(row.ketinggian)));
+      let value3 = slicedRows.map((row) => (Number(row.tekanan)));
+      let reading_time = slicedRows.map((row) => {
+        let timeString = (new Date(row.timestamp)).toISOString();
+        return timeString.substring(0, timeString.length - 5).replace("T", " ");
+      });
+
+      let chartT = new Highcharts.Chart({
+        chart: { renderTo: 'chart-temperature' },
+        title: { text: 'BMP180 Temperature' },
+        series: [{
+          showInLegend: false,
+          data: value1
+        }],
+        plotOptions: {
+          line: {
+            animation: false,
+            dataLabels: { enabled: true }
+          },
+          series: { color: '#059e8a' }
+        },
+        xAxis: {
+          type: 'datetime',
+          categories: reading_time
+        },
+        yAxis: {
+          title: { text: 'Temperature (Celsius)' }
+          //title: { text: 'Temperature (Fahrenheit)' }
+        },
+        credits: { enabled: false }
+      });
+
+      let chartH = new Highcharts.Chart({
+        chart: { renderTo: 'chart-altitude' },
+        title: { text: 'BMP180 Altitude' },
+        series: [{
+          showInLegend: false,
+          data: value2
+        }],
+        plotOptions: {
+          line: {
+            animation: false,
+            dataLabels: { enabled: true }
+          }
+        },
+        xAxis: {
+          type: 'datetime',
+          //dateTimeLabelFormats: { second: '%H:%M:%S' },
+          categories: reading_time
+        },
+        yAxis: {
+          title: { text: 'Altitude (m)' }
+        },
+        credits: { enabled: false }
+      });
+
+      let chartP = new Highcharts.Chart({
+        chart: { renderTo: 'chart-pressure' },
+        title: { text: 'BMP180 Pressure' },
+        series: [{
+          showInLegend: false,
+          data: value3
+        }],
+        plotOptions: {
+          line: {
+            animation: false,
+            dataLabels: { enabled: true }
+          },
+          series: { color: '#18009c' }
+        },
+        xAxis: {
+          type: 'datetime',
+          categories: reading_time
+        },
+        yAxis: {
+          title: { text: 'Pressure (Pa)' }
+        },
+        credits: { enabled: false }
+      });
+    });
+  }).catch((error) => {
+    console.log(error);
+  })
+</script>
+</html>
