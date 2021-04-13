@@ -296,7 +296,7 @@
       document.querySelector("#dataKetinggian").innerHTML = rows[rows.length - 1].ketinggian + " m";
 
       // --- menggambar grafik ---
-      let slicedRows = rows.slice(rows.length - 48, rows.length);
+      let slicedRows = rows.slice(rows.length - 10, rows.length);
       let value1 = slicedRows.map((row) => (Number(row.suhu)));
       let value2 = slicedRows.map((row) => (Number(row.ketinggian)));
       let value3 = slicedRows.map((row) => (Number(row.tekanan)));
