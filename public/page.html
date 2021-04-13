@@ -286,7 +286,7 @@
   
   // me-retrieve semua data pembacaan sensor dari db
   // fetch('http://localhost:5000/pembacaan').then((response) => {
-  fetch(' https://advanced-weather-bmp180.herokuapp.com/pembacaan').then((response) => {
+  fetch('https://advanced-weather-bmp180.herokuapp.com/pembacaan').then((response) => {
     response.json().then((bodyContent) => {
       let rows = bodyContent;
 
@@ -300,8 +300,8 @@
       let value1 = slicedRows.map((row) => (Number(row.suhu)));
       let value2 = slicedRows.map((row) => (Number(row.ketinggian)));
       let value3 = slicedRows.map((row) => (Number(row.tekanan)));
-        console.log("timestamp di row pertama:" + sliderows[0].timestamp)
-      let reading_time = sliedRows.map((row) => {
+        console.log("timestamp di row pertama:" + slicedRows[0].timestamp)
+      let reading_time = slicedRows.map((row) => {
         let timeString = (new Date(row.timestamp)).toISOString();
         return timeString.substring(0, timeString.length - 5).replace("T", " ");
       });
