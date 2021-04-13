@@ -300,10 +300,12 @@
       let value1 = slicedRows.map((row) => (Number(row.suhu)));
       let value2 = slicedRows.map((row) => (Number(row.ketinggian)));
       let value3 = slicedRows.map((row) => (Number(row.tekanan)));
+        console.log("timestamp di row pertama:" + sliderows[0].timestamp)
       let reading_time = slicedRows.map((row) => {
         let timeString = (new Date(row.timestamp)).toISOString();
         return timeString.substring(0, timeString.length - 5).replace("T", " ");
       });
+     console.log("isi reading_time:" + reading_time)
 
       let chartT = new Highcharts.Chart({
         chart: { renderTo: 'chart-temperature' },
